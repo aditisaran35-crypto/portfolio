@@ -18,6 +18,83 @@
             background: #f8f9fa;
         }
 
+        /* Password Screen */
+        #password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .password-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-container h1 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .password-container p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #2c5aa0;
+        }
+
+        .password-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #2c5aa0 0%, #4a7dc9 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .password-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: #d32f2f;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        #main-content {
+            display: none;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -306,362 +383,404 @@
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#journey">My Journey</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#leadership">Leadership</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-        </ul>
-    </nav>
-
-    <div class="content-wrapper">
-        <!-- Hero Section -->
-        <div class="hero" id="home">
-            <h1>Aditi Sarangmath</h1>
-            <p>Aspiring Healthcare Professional | Class of 2026</p>
-            <p>Dedicated to Compassionate Care and Medical Innovation</p>
-            <div class="contact-info">
-                <p>South Barrington, Illinois | Barrington High School</p>
-            </div>
+    <!-- Password Screen -->
+    <div id="password-screen">
+        <div class="password-container">
+            <h1>Welcome</h1>
+            <p>Please enter the password to view this portfolio</p>
+            <input type="password" id="password-input" class="password-input" placeholder="Enter password">
+            <button onclick="checkPassword()" class="password-submit">Submit</button>
+            <p class="error-message" id="error-message">Incorrect password. Please try again.</p>
         </div>
-
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                I am a driven high school senior with a deep passion for healthcare and an unwavering commitment to serving others. Through hundreds of hours of clinical experience, groundbreaking research, and extensive community service, I have developed the compassion, knowledge, and dedication necessary to pursue a career in medicine. My journey reflects not just academic excellence, but a genuine desire to make a meaningful impact on people's lives through healthcare.
-            </p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">160+</div>
-                    <div>Clinical Hours</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4.46</div>
-                    <div>Weighted GPA</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">1520</div>
-                    <div>SAT Score</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">1st</div>
-                    <div>HOSA State Champion</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Journey Section -->
-        <section id="journey">
-            <h2>My Healthcare Journey</h2>
-            
-            <!-- Education -->
-            <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 2rem;">Academic Foundation</h3>
-            <div class="experience-card">
-                <h3>Barrington High School - Class of 2026</h3>
-                <p><strong>GPA:</strong> 4.46 Weighted | 3.89 Unweighted</p>
-                <p><strong>SAT:</strong> 1520 (Math: 800, Reading & Writing: 720)</p>
-                <p><strong>Honors:</strong> AP Scholar with Distinction, National Honor Society</p>
-            </div>
-            <h3 style="margin-top: 1.5rem;">Advanced Placement Coursework</h3>
-            <div class="skills-grid">
-                <div class="skill-card">AP Calculus BC</div>
-                <div class="skill-card">AP Biology</div>
-                <div class="skill-card">AP World History</div>
-                <div class="skill-card">AP US History</div>
-                <div class="skill-card">AP Computer Science Principles</div>
-                <div class="skill-card">AP Computer Science A</div>
-                <div class="skill-card">AP English Language</div>
-            </div>
-
-            <!-- UCI MedAcademy -->
-            <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">Summer 2024: Medical Exploration</h3>
-            <div class="content-with-image">
-                <div>
-                    <div class="experience-card">
-                        <h3>UC Irvine MedAcademy Scholar</h3>
-                        <div class="date">Summer 2024</div>
-                        <div class="location">UC Irvine School of Medicine, Irvine, CA</div>
-                        <ul>
-                            <li>Participated in medical resuscitation, suturing basics, and ultrasound procedures</li>
-                            <li>Engaged in standardized patient experiences to enhance clinical communication</li>
-                            <li>Completed leadership training for future physician-leaders</li>
-                            <li>Attended medical lectures on clinical reasoning, anatomy, and CPR</li>
-                            <li>Participated in advocacy training and team-building activities</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image2.jpg" alt="UCI MedAcademy Certificate">
-                    <p class="image-caption">Completing UC Irvine MedAcademy program</p>
-                </div>
-            </div>
-
-            <div class="content-with-image reverse">
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image12.jpg" alt="UCI Group">
-                    <p class="image-caption">With fellow MedAcademy scholars</p>
-                </div>
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image9.jpg" alt="Suturing Practice">
-                    <p class="image-caption">Learning suturing techniques</p>
-                </div>
-            </div>
-
-            <div class="content-with-image">
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image10.jpg" alt="Medical Assessment">
-                    <p class="image-caption">Practicing clinical assessment</p>
-                </div>
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image13.jpg" alt="Medical Monitoring">
-                    <p class="image-caption">Learning patient monitoring systems</p>
-                </div>
-            </div>
-
-            <!-- Hospital Volunteering -->
-            <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">June 2024-Present: Clinical Experience</h3>
-            <div class="experience-card">
-                <h3>Healthcare Volunteer</h3>
-                <div class="date">June 2024 - Present</div>
-                <div class="location">OSF Saint Anthony Medical Center, Rockford, IL</div>
-                <ul>
-                    <li>Completed over 100 hours of hands-on experience engaging with patients</li>
-                    <li>Contributed by stocking supplies and offering clerical/phone support</li>
-                    <li>Provided compassionate patient and family interactions</li>
-                    <li>Earned Certificate of Volunteer Experience for 100+ hours</li>
-                </ul>
-            </div>
-
-            <!-- Hospice Care -->
-            <div class="experience-card">
-                <h3>After Hours Reception Volunteer</h3>
-                <div class="date">August 2024 - Present</div>
-                <div class="location">JourneyCare Hospice CareCenter, Barrington, IL</div>
-                <ul>
-                    <li>Provided compassionate after-hours reception support</li>
-                    <li>Assisted families and staff with inquiries and urgent requests</li>
-                    <li>Ensured efficient communication and confidentiality</li>
-                    <li>Contributed to supportive environment during end-of-life care</li>
-                </ul>
-            </div>
-
-            <!-- Summer 2025 Internship -->
-            <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">Summer 2025: Advanced Clinical Training</h3>
-            <div class="experience-card">
-                <h3>Healthcare Intern</h3>
-                <div class="date">Summer 2025</div>
-                <div class="location">Alden Estates, Barrington, IL</div>
-                <ul>
-                    <li>Supported residents with daily living tasks including mobility and meal assistance</li>
-                    <li>Observed and documented vital signs, reporting changes to licensed staff</li>
-                    <li>Facilitated social engagement through activity escorts and companionship</li>
-                    <li>Maintained safe, clean environments aligned with facility protocols</li>
-                </ul>
-            </div>
-
-            <!-- CNA Training -->
-            <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">Fall 2025-Spring 2026: Professional Certification</h3>
-            <div class="content-with-image">
-                <div>
-                    <div class="experience-card">
-                        <h3>Certified Nursing Assistant Training</h3>
-                        <div class="date">Fall 2025 – Spring 2026</div>
-                        <div class="location">Harper College, Palatine, IL</div>
-                        <ul>
-                            <li>Enrolled in CNA 111 Nursing Assistant Training (dual-credit program)</li>
-                            <li>Mastering patient care skills: vital signs monitoring, mobility assistance, infection control</li>
-                            <li>Scheduled for 40 clinical hours at local nursing home in CNA 112</li>
-                            <li>Preparing for Illinois Nurse Aide Competency Exam</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image14.jpg" alt="Clinical Simulation">
-                    <p class="image-caption">Clinical simulation training with medical equipment</p>
-                </div>
-            </div>
-
-            <div class="full-width-image">
-                <img src="image15.jpg" alt="Patient Care Training" onclick="openModal(this)">
-                <p class="image-caption">Collaborative learning during patient care simulation</p>
-            </div>
-        </section>
-
-        <!-- Research Section -->
-        <section id="research">
-            <h2>Research & Innovation</h2>
-            
-            <div class="content-with-image">
-                <div>
-                    <div class="experience-card">
-                        <h3>Research Intern - Cardiac Research</h3>
-                        <div class="date">June - August 2025</div>
-                        <div class="location">Sudden Cardiac-death Awareness Research Foundation (SCARF)</div>
-                        <ul>
-                            <li>Completed 8-week healthcare mentorship with 56 hours shadowing Cardiologist-Electrophysiologist Dr. Paul Nguyen</li>
-                            <li>Observed diagnostic procedures including ECG and tilt table tests</li>
-                            <li>Researched AI-detected arrhythmias and ethnic disparities in heart disease</li>
-                            <li>Contributed 60 hours to professional development workshops</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image7.jpg" alt="SCARF Award">
-                    <p class="image-caption">Receiving recognition for research excellence</p>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 2rem;">D.O.N.T. P.A.S.S. O.U.T. Research Project</h3>
-            <p style="margin-bottom: 1rem;">
-                Designed and presented innovative research on cardiac syncope prevention at the SCARF Scientific Symposium, proposing the PostPulse app to reduce hospital readmissions through pattern recognition, side effect monitoring, and heart rate warnings.
-            </p>
-
-            <div class="full-width-image">
-                <img src="image3.jpg" alt="Research Presentation" onclick="openModal(this)">
-                <p class="image-caption">Presenting research findings to medical professionals</p>
-            </div>
-
-            <div class="content-with-image">
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image5.jpg" alt="Research Poster Detail">
-                    <p class="image-caption">Explaining PostPulse app development</p>
-                </div>
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image6.jpg" alt="Research Symposium">
-                    <p class="image-caption">At SCARF Scientific Symposium</p>
-                </div>
-            </div>
-
-            <div class="full-width-image">
-                <img src="image4.jpg" alt="Research Team" onclick="openModal(this)">
-                <p class="image-caption">With research mentors and fellow interns</p>
-            </div>
-
-            <div class="full-width-image">
-                <img src="image8.jpg" alt="SCARF Ceremony" onclick="openModal(this)">
-                <p class="image-caption">SCARF program completion ceremony with all research scholars</p>
-            </div>
-        </section>
-
-        <!-- Leadership Section -->
-        <section id="leadership">
-            <h2>Leadership & Community Involvement</h2>
-            
-            <div class="content-with-image reverse">
-                <div class="image-container" onclick="openModal(this)">
-                    <img src="image1.jpg" alt="HOSA State Champions">
-                    <p class="image-caption">HOSA State Championship team - 1st place Healthy Living</p>
-                </div>
-                <div>
-                    <div class="experience-card">
-                        <h3>HOSA-Future Health Professionals</h3>
-                        <ul>
-                            <li>1st Place, Healthy Living (State Champion) - Qualified for International Leadership Conference</li>
-                            <li>Competed at 2025 HOSA International Leadership Conference among 12,900 global competitors</li>
-                            <li>Presented on eating disorders awareness and healthy living initiatives</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="full-width-image">
-                <img src="image11.jpg" alt="HOSA Presentation" onclick="openModal(this)">
-                <p class="image-caption">Presenting on eating disorders and health awareness at HOSA competition</p>
-            </div>
-
-            <div class="experience-card">
-                <h3>Model United Nations</h3>
-                <ul>
-                    <li>Participated in debates on global health and international issues</li>
-                    <li>Conducted research and presented findings to shape debate strategy</li>
-                    <li>Developed critical thinking and communication skills</li>
-                </ul>
-            </div>
-
-            <div class="experience-card">
-                <h3>South Asian Student Association (SASA)</h3>
-                <ul>
-                    <li>Led organization of Navratri, Garba, and Diwali celebrations</li>
-                    <li>Promoted cultural awareness and inclusivity within school community</li>
-                    <li>Built leadership and planning skills through event coordination</li>
-                </ul>
-            </div>
-
-            <div class="experience-card">
-                <h3>Varsity Badminton Team</h3>
-                <div class="date">Sophomore - Present</div>
-                <ul>
-                    <li>Advanced from JV to Varsity through consistent performance and dedication</li>
-                    <li>Led and mentored teammates during practice</li>
-                    <li>Known for strong commitment, focus, and integrity</li>
-                </ul>
-            </div>
-
-            <h3 style="margin-top: 2rem; color: #2c5aa0;">Community Service</h3>
-            <ul style="margin-left: 2rem; margin-top: 1rem;">
-                <li><strong>Eye Level Learning</strong> - Tutor and Grader for elementary students</li>
-                <li><strong>Feed My Starving Children</strong> - Meal packing volunteer (2023-2024)</li>
-                <li><strong>60010 Feeds Kids Campaign</strong> - Hunger relief volunteer (2024)</li>
-                <li><strong>Animal House Shelter</strong> - Dog walking and socialization (2024)</li>
-                <li><strong>Red Cross Walkathon</strong> - Event organizer (2023)</li>
-                <li><strong>Barrington United Methodist Rummage Sale</strong> - Fundraising volunteer (2023)</li>
-                <li><strong>Elementary School Book Fair</strong> - Literacy promotion (2022)</li>
-                <li><strong>Lake Barrington Woods Assisted Living</strong> - Elder care volunteer (2023)</li>
-            </ul>
-        </section>
-
-        <!-- Achievements Section -->
-        <section id="achievements">
-            <h2>Awards & Honors</h2>
-            
-            <div class="award-card">
-                <h3>1st Place - Healthy Living, HOSA State Leadership Conference (2025)</h3>
-                <p>State Champion, qualified for International Leadership Conference representing Illinois among 12,900 global competitors</p>
-            </div>
-
-            <div class="award-card">
-                <h3>AP Scholar with Distinction</h3>
-                <p>Recognized for exceptional performance on multiple AP examinations</p>
-            </div>
-
-            <div class="award-card">
-                <h3>UC Irvine MedAcademy Scholar</h3>
-                <p>Selected for prestigious medical education program at UC Irvine School of Medicine</p>
-            </div>
-
-            <div class="award-card">
-                <h3>National Honor Society</h3>
-                <p>Member in recognition of academic excellence and leadership</p>
-            </div>
-
-            <div class="award-card">
-                <h3>Certificate of Volunteer Experience - OSF HealthCare</h3>
-                <p>Completed 100+ hours of clinical volunteer service</p>
-            </div>
-
-            <div class="award-card">
-                <h3>President's Volunteer Service Award (Bronze)</h3>
-                <p>AmeriCorps recognition for community service dedication</p>
-            </div>
-
-            <div class="award-card">
-                <h3>Competitive Swimmer - Barrington Swim Club (2019-2022)</h3>
-                <p>Ranked 13th in BSC (2021-22) and earned top-20 finishes in regional USA Swimming events, demonstrating dedication and perseverance</p>
-            </div>
-        </section>
     </div>
 
-    <!-- Modal for images -->
-    <div class="modal" id="imageModal" onclick="closeModal()">
-        <span class="modal-close">&times;</span>
-        <img id="modalImage" src="" alt="">
+    <!-- Main Content -->
+    <div id="main-content">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">My Journey</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <!-- Hero Section -->
+            <div class="hero" id="home">
+                <h1>Aditi Sarangmath</h1>
+                <p>Aspiring Healthcare Professional | Class of 2026</p>
+                <p>Dedicated to Compassionate Care and Medical Innovation</p>
+                <div class="contact-info">
+                    <p>South Barrington, Illinois | Barrington High School</p>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <section id="about">
+                <h2>About Me</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    I am a driven high school senior with a deep passion for healthcare and an unwavering commitment to serving others. Through hundreds of hours of clinical experience, groundbreaking research, and extensive community service, I have developed the compassion, knowledge, and dedication necessary to pursue a career in medicine. My journey reflects not just academic excellence, but a genuine desire to make a meaningful impact on people's lives through healthcare.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">160+</div>
+                        <div>Clinical Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1st</div>
+                        <div>HOSA State Champion</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">AP Scholar</div>
+                        <div>with Distinction</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div>Volunteer Hours Certified</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Journey Section -->
+            <section id="journey">
+                <h2>My Healthcare Journey</h2>
+                
+                <!-- Education -->
+                <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 2rem;">Academic Foundation</h3>
+                <div class="experience-card">
+                    <h3>Barrington High School - Class of 2026</h3>
+                    <p><strong>Honors:</strong> AP Scholar with Distinction, National Honor Society</p>
+                </div>
+                <h3 style="margin-top: 1.5rem;">Advanced Placement Coursework</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">AP Calculus BC</div>
+                    <div class="skill-card">AP Biology</div>
+                    <div class="skill-card">AP World History</div>
+                    <div class="skill-card">AP US History</div>
+                    <div class="skill-card">AP Computer Science Principles</div>
+                    <div class="skill-card">AP Computer Science A</div>
+                    <div class="skill-card">AP English Language</div>
+                </div>
+
+                <!-- UCI MedAcademy -->
+                <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">Summer 2024: Medical Exploration</h3>
+                <div class="content-with-image">
+                    <div>
+                        <div class="experience-card">
+                            <h3>UC Irvine MedAcademy Scholar</h3>
+                            <div class="date">Summer 2024</div>
+                            <div class="location">UC Irvine School of Medicine, Irvine, CA</div>
+                            <ul>
+                                <li>Participated in medical resuscitation, suturing basics, and ultrasound procedures</li>
+                                <li>Engaged in standardized patient experiences to enhance clinical communication</li>
+                                <li>Completed leadership training for future physician-leaders</li>
+                                <li>Attended medical lectures on clinical reasoning, anatomy, and CPR</li>
+                                <li>Participated in advocacy training and team-building activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image2.jpg" alt="UCI MedAcademy Certificate">
+                        <p class="image-caption">Completing UC Irvine MedAcademy program</p>
+                    </div>
+                </div>
+
+                <div class="content-with-image reverse">
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image12.jpg" alt="UCI Group">
+                        <p class="image-caption">With fellow MedAcademy scholars</p>
+                    </div>
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image9.jpg" alt="Suturing Practice">
+                        <p class="image-caption">Learning suturing techniques</p>
+                    </div>
+                </div>
+
+                <div class="content-with-image">
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image10.jpg" alt="Medical Assessment">
+                        <p class="image-caption">Practicing clinical assessment</p>
+                    </div>
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image13.jpg" alt="Medical Monitoring">
+                        <p class="image-caption">Learning patient monitoring systems</p>
+                    </div>
+                </div>
+
+                <!-- Hospital Volunteering -->
+                <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">June 2024-Present: Clinical Experience</h3>
+                <div class="experience-card">
+                    <h3>Healthcare Volunteer</h3>
+                    <div class="date">June 2024 - Present</div>
+                    <div class="location">OSF Saint Anthony Medical Center, Rockford, IL</div>
+                    <ul>
+                        <li>Completed over 100 hours of hands-on experience engaging with patients</li>
+                        <li>Contributed by stocking supplies and offering clerical/phone support</li>
+                        <li>Provided compassionate patient and family interactions</li>
+                        <li>Earned Certificate of Volunteer Experience for 100+ hours</li>
+                    </ul>
+                </div>
+
+                <!-- Hospice Care -->
+                <div class="experience-card">
+                    <h3>After Hours Reception Volunteer</h3>
+                    <div class="date">August 2024 - Present</div>
+                    <div class="location">JourneyCare Hospice CareCenter, Barrington, IL</div>
+                    <ul>
+                        <li>Provided compassionate after-hours reception support</li>
+                        <li>Assisted families and staff with inquiries and urgent requests</li>
+                        <li>Ensured efficient communication and confidentiality</li>
+                        <li>Contributed to supportive environment during end-of-life care</li>
+                    </ul>
+                </div>
+
+                <!-- Summer 2025 Internship -->
+                <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">Summer 2025: Advanced Clinical Training</h3>
+                <div class="experience-card">
+                    <h3>Healthcare Intern</h3>
+                    <div class="date">Summer 2025</div>
+                    <div class="location">Alden Estates, Barrington, IL</div>
+                    <ul>
+                        <li>Supported residents with daily living tasks including mobility and meal assistance</li>
+                        <li>Observed and documented vital signs, reporting changes to licensed staff</li>
+                        <li>Facilitated social engagement through activity escorts and companionship</li>
+                        <li>Maintained safe, clean environments aligned with facility protocols</li>
+                    </ul>
+                </div>
+
+                <!-- CNA Training -->
+                <h3 style="color: #2c5aa0; font-size: 2rem; margin-top: 3rem;">Fall 2025-Spring 2026: Professional Certification</h3>
+                <div class="content-with-image">
+                    <div>
+                        <div class="experience-card">
+                            <h3>Certified Nursing Assistant Training</h3>
+                            <div class="date">Fall 2025 – Spring 2026</div>
+                            <div class="location">Harper College, Palatine, IL</div>
+                            <ul>
+                                <li>Enrolled in CNA 111 Nursing Assistant Training (dual-credit program)</li>
+                                <li>Mastering patient care skills: vital signs monitoring, mobility assistance, infection control</li>
+                                <li>Scheduled for 40 clinical hours at local nursing home in CNA 112</li>
+                                <li>Preparing for Illinois Nurse Aide Competency Exam</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image14.jpg" alt="Clinical Simulation">
+                        <p class="image-caption">Clinical simulation training with medical equipment</p>
+                    </div>
+                </div>
+
+                <div class="full-width-image">
+                    <img src="image15.jpg" alt="Patient Care Training" onclick="openModal(this)">
+                    <p class="image-caption">Collaborative learning during patient care simulation</p>
+                </div>
+            </section>
+
+            <!-- Research Section -->
+            <section id="research">
+                <h2>Research & Innovation</h2>
+                
+                <div class="content-with-image">
+                    <div>
+                        <div class="experience-card">
+                            <h3>Research Intern - Cardiac Research</h3>
+                            <div class="date">June - August 2025</div>
+                            <div class="location">Sudden Cardiac-death Awareness Research Foundation (SCARF)</div>
+                            <ul>
+                                <li>Completed 8-week healthcare mentorship with 56 hours shadowing Cardiologist-Electrophysiologist Dr. Paul Nguyen</li>
+                                <li>Observed diagnostic procedures including ECG and tilt table tests</li>
+                                <li>Researched AI-detected arrhythmias and ethnic disparities in heart disease</li>
+                                <li>Contributed 60 hours to professional development workshops</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image7.jpg" alt="SCARF Award">
+                        <p class="image-caption">Receiving recognition for research excellence</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">D.O.N.T. P.A.S.S. O.U.T. Research Project</h3>
+                <p style="margin-bottom: 1rem;">
+                    Designed and presented innovative research on cardiac syncope prevention at the SCARF Scientific Symposium, proposing the PostPulse app to reduce hospital readmissions through pattern recognition, side effect monitoring, and heart rate warnings.
+                </p>
+
+                <div class="full-width-image">
+                    <img src="image3.jpg" alt="Research Presentation" onclick="openModal(this)">
+                    <p class="image-caption">Presenting research findings to medical professionals</p>
+                </div>
+
+                <div class="content-with-image">
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image5.jpg" alt="Research Poster Detail">
+                        <p class="image-caption">Explaining PostPulse app development</p>
+                    </div>
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image6.jpg" alt="Research Symposium">
+                        <p class="image-caption">At SCARF Scientific Symposium</p>
+                    </div>
+                </div>
+
+                <div class="full-width-image">
+                    <img src="image4.jpg" alt="Research Team" onclick="openModal(this)">
+                    <p class="image-caption">With research mentors and fellow interns</p>
+                </div>
+
+                <div class="full-width-image">
+                    <img src="image8.jpg" alt="SCARF Ceremony" onclick="openModal(this)">
+                    <p class="image-caption">SCARF program completion ceremony with all research scholars</p>
+                </div>
+            </section>
+
+            <!-- Leadership Section -->
+            <section id="leadership">
+                <h2>Leadership & Community Involvement</h2>
+                
+                <div class="content-with-image reverse">
+                    <div class="image-container" onclick="openModal(this)">
+                        <img src="image1.jpg" alt="HOSA State Champions">
+                        <p class="image-caption">HOSA State Championship team - 1st place Healthy Living</p>
+                    </div>
+                    <div>
+                        <div class="experience-card">
+                            <h3>HOSA-Future Health Professionals</h3>
+                            <ul>
+                                <li>1st Place, Healthy Living (State Champion) - Qualified for International Leadership Conference</li>
+                                <li>Competed at 2025 HOSA International Leadership Conference among 12,900 global competitors</li>
+                                <li>Presented on eating disorders awareness and healthy living initiatives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="full-width-image">
+                    <img src="image11.jpg" alt="HOSA Presentation" onclick="openModal(this)">
+                    <p class="image-caption">Presenting on eating disorders and health awareness at HOSA competition</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Model United Nations</h3>
+                    <ul>
+                        <li>Participated in debates on global health and international issues</li>
+                        <li>Conducted research and presented findings to shape debate strategy</li>
+                        <li>Developed critical thinking and communication skills</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>South Asian Student Association (SASA)</h3>
+                    <ul>
+                        <li>Led organization of Navratri, Garba, and Diwali celebrations</li>
+                        <li>Promoted cultural awareness and inclusivity within school community</li>
+                        <li>Built leadership and planning skills through event coordination</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Varsity Badminton Team</h3>
+                    <div class="date">Sophomore - Present</div>
+                    <ul>
+                        <li>Advanced from JV to Varsity through consistent performance and dedication</li>
+                        <li>Led and mentored teammates during practice</li>
+                        <li>Known for strong commitment, focus, and integrity</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin-top: 2rem; color: #2c5aa0;">Community Service</h3>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li><strong>Eye Level Learning</strong> - Tutor and Grader for elementary students</li>
+                    <li><strong>Feed My Starving Children</strong> - Meal packing volunteer (2023-2024)</li>
+                    <li><strong>60010 Feeds Kids Campaign</strong> - Hunger relief volunteer (2024)</li>
+                    <li><strong>Animal House Shelter</strong> - Dog walking and socialization (2024)</li>
+                    <li><strong>Red Cross Walkathon</strong> - Event organizer (2023)</li>
+                    <li><strong>Barrington United Methodist Rummage Sale</strong> - Fundraising volunteer (2023)</li>
+                    <li><strong>Elementary School Book Fair</strong> - Literacy promotion (2022)</li>
+                    <li><strong>Lake Barrington Woods Assisted Living</strong> - Elder care volunteer (2023)</li>
+                </ul>
+            </section>
+
+            <!-- Achievements Section -->
+            <section id="achievements">
+                <h2>Awards & Honors</h2>
+                
+                <div class="award-card">
+                    <h3>1st Place - Healthy Living, HOSA State Leadership Conference (2025)</h3>
+                    <p>State Champion, qualified for International Leadership Conference representing Illinois among 12,900 global competitors</p>
+                </div>
+
+                <div class="award-card">
+                    <h3>AP Scholar with Distinction</h3>
+                    <p>Recognized for exceptional performance on multiple AP examinations</p>
+                </div>
+
+                <div class="award-card">
+                    <h3>UC Irvine MedAcademy Scholar</h3>
+                    <p>Selected for prestigious medical education program at UC Irvine School of Medicine</p>
+                </div>
+
+                <div class="award-card">
+                    <h3>National Honor Society</h3>
+                    <p>Member in recognition of academic excellence and leadership</p>
+                </div>
+
+                <div class="award-card">
+                    <h3>Certificate of Volunteer Experience - OSF HealthCare</h3>
+                    <p>Completed 100+ hours of clinical volunteer service</p>
+                </div>
+
+                <div class="award-card">
+                    <h3>President's Volunteer Service Award (Bronze)</h3>
+                    <p>AmeriCorps recognition for community service dedication</p>
+                </div>
+
+                <div class="award-card">
+                    <h3>Competitive Swimmer - Barrington Swim Club (2019-2022)</h3>
+                    <p>Ranked 13th in BSC (2021-22) and earned top-20 finishes in regional USA Swimming events, demonstrating dedication and perseverance</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Modal for images -->
+        <div class="modal" id="imageModal" onclick="closeModal()">
+            <span class="modal-close">&times;</span>
+            <img id="modalImage" src="" alt="">
+        </div>
     </div>
 
     <script>
+        // Password protection
+        const correctPassword = 'healthcare2026';
+        
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            const errorMsg = document.getElementById('error-message');
+            
+            if (input === correctPassword) {
+                document.getElementById('password-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                sessionStorage.setItem('authenticated', 'true');
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('password-input').value = '';
+            }
+        }
+
+        // Allow Enter key to submit password
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            document.getElementById('password-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
